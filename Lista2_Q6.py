@@ -7,7 +7,7 @@ n=4
 A = np.array([[0,0,0,1],[0,0,1,0],[0,1,0,0],[1,0,0,0]])
 B = np.array([[1,0,0,0],[0,-1,0,0],[0,0,-1,0],[0,0,0,1]])
 
-X = cp.Variable((n,n))
+X = cp.Variable((n,n),symmetric=True)
 constraints = [cp.trace(B@X)==1,cp.trace(X)==1,X >> 0]
 
 prob = cp.Problem(cp.Maximize(cp.trace(A @ X)),
