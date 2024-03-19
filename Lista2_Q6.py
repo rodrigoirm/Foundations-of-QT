@@ -10,7 +10,7 @@ B = np.array([[1,0,0,0],[0,-1,0,0],[0,0,-1,0],[0,0,0,1]])
 X = cp.Variable((n,n))
 constraints = [cp.trace(B@X)==1,cp.trace(X)==1,X >> 0]
 
-prob = cp.Problem(cp.Minimize(cp.trace(A @ X)),
+prob = cp.Problem(cp.Maximize(cp.trace(A @ X)),
                   constraints)
 prob.solve()
 
